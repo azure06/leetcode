@@ -6,7 +6,7 @@ var isValid = function(s) {
   const patterns = {
     '}': '{',
     ']': '[',
-    ')': '('
+    ')': '(',
   };
   const arr = [];
   for (let i = 0; i < s.length; i++) {

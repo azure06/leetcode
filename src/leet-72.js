@@ -26,7 +26,7 @@ const memoize = ((values = {}) => ({
   memoize(word1, word2, value) {
     values[word1 + word2] = value;
     return value;
-  }
+  },
 }))();
 
 /** Slower recursive

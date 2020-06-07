@@ -52,7 +52,7 @@ var insert = function(intervals, [newLeft, newRight]) {
       return [
         ...leftPart,
         [intervals[leftIndex][0], intervals[rightIndex][1]],
-        ...rightPart
+        ...rightPart,
       ];
     } else if (leftInside && !rightInside) {
       const leftPart = intervals.slice(0, leftIndex);
