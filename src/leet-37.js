@@ -1,4 +1,4 @@
-function getIndices(t) {
+function getBoxEdges(t) {
   if (t < 3) return [0, 3];
   if (t < 6) return [3, 6];
   if (t < 9) return [6, 9];
@@ -14,8 +14,8 @@ function findCandidates(board, row, col) {
       candidates[board[i][col] - 1] = false;
     }
   }
-  const [rS, rE] = getIndices(row);
-  const [cS, cE] = getIndices(col);
+  const [rS, rE] = getBoxEdges(row);
+  const [cS, cE] = getBoxEdges(col);
   for (let i = rS; i < rE; i += 1) {
     for (let j = cS; j < cE; j += 1) {
       if (board[i][j] !== '.') {
