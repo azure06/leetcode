@@ -32,3 +32,25 @@ const quicksort = (arr, left, right) => {
   quicksort(arr, left, partitionIndex - 1);
   quicksort(arr, partitionIndex + 1, right);
 };
+
+/**
+ * Counting sort
+ */
+function countingSort(values) {
+  const counting = new Array(10).fill(0);
+  const res = [];
+  for (let i = 0; i < values.length; i += 1) {
+    counting[values[i]] += 1;
+  }
+
+  for (let i = 0; i < counting.length; i += 1) {
+    counting[i] = (counting[i - 1] || 0) + counting[i];
+  }
+  for (let i = 0; i < values.length; i += 1) {
+    counting[values[i]] -= 1;
+    res[counting[values[i]]] = values[i];
+  }
+  return res;
+}
+
+console.warn(countingSort([1, 5, 9, 3, 5]));
