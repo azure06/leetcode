@@ -1,7 +1,7 @@
 {
   "name": "leetcide",
   "version": "1.0.0",
-  "description": "Leect Code Colutions",
+  "description": "Leect Code Solutions",
   "author": "Gabriele Sato",
   "private": true,
   "husky": {
@@ -13,7 +13,6 @@
     "lint": "eslint --ext .js,.ts --ignore-path .gitignore .",
     "lintfix": "eslint --fix --ext .js,.ts --ignore-path .gitignore ."
   },
-  "dependencies": {},
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",

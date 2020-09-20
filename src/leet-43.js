@@ -66,24 +66,45 @@ const sum = (num1, num2) => {
   return result;
 };
 
-/*
-public String multiply(String num1, String num2) {
-    int m = num1.length(), n = num2.length();
-    int[] pos = new int[m + n];
-
-    for(int i = m - 1; i >= 0; i--) {
-        for(int j = n - 1; j >= 0; j--) {
-            int mul = (num1.charAt(i) - '0') * (num2.charAt(j) - '0');
-            int p1 = i + j, p2 = i + j + 1;
-            int sum = mul + pos[p2];
-
-            pos[p1] += sum / 10;
-            pos[p2] = (sum) % 10;
-        }
+/* Another solution maybe not perfect but looks better than the previous one
+ var multiply = function (num1, num2) {
+  num1 = num1.split("").reverse();
+  num2 = num2.split("").reverse();
+  let result = "0";
+  for (let i = 0; i < num1.length; i += 1) {
+    let res = "";
+    let carry = 0;
+    for (let j = 0; j < num2.length; j += 1) {
+      const value = ("0" + ((+num1[i] || 0) * (+num2[j] || 0) + carry)).slice(
+        -2
+      );
+      res = value[1] + res;
+      carry = +value[0] || 0;
     }
+    let zeros = "";
+    for (let k = 0; k < i; k += 1) {
+      zeros += "0";
+    }
+    result = add(result, (carry > 0 ? carry + res : res) + zeros);
+  }
+  return result;
+};
 
-    StringBuilder sb = new StringBuilder();
-    for(int p : pos) if(!(sb.length() == 0 && p == 0)) sb.append(p);
-    return sb.length() == 0 ? "0" : sb.toString();
-}
+const add = function (num1, num2) {
+  num1 = num1.split("").reverse();
+  num2 = num2.split("").reverse();
+  const length = num1.length > num2.length ? num1.length : num2.length;
+  let result = "";
+  let carry = 0;
+  for (let i = 0; i < length; i += 1) {
+    const value = ("0" + ((+num1[i] || 0) + (+num2[i] || 0) + carry)).slice(-2);
+    result = value[1] + result;
+    carry = +value[0] || 0;
+  }
+  return carry > 0 ? carry + result : result;
+};
+
+console.warn(multipy("123", "456"));
+console.warn(123 * 456);
+
 */
